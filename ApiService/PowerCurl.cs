@@ -1,4 +1,5 @@
 using System;
+using System.Configuration;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -12,7 +13,7 @@ namespace ChatGPT.API
         {
             string curlPath;
 
-            curlPath = ConfigHelper.GetCfg("CurlPath");
+            curlPath = ConfigurationManager.AppSettings["CurlPath"].ToString();
             if (string.IsNullOrEmpty(curlPath)) { 
                 curlPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "curl\\bin\\curl.exe");
             }
