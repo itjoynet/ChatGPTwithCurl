@@ -9,15 +9,14 @@ win10自带Curl.exe，其他系统可绿色安装。
 
 使用方法：
 1. 在web.config中增加以下配置
-
-    <add key="CurlPath" value="C:\\curl\\bin\\curl.exe"/>
-    <!-- ChatGPT接口配置 -->
-    <add key="ChatGPT_Api_Url" value="https://api.openai.com/v1/completions"/>
-    <add key="ChatGPT_Api_Key" value="登录openai账号后创建Authorization_Key"/>
-    <!-- 代理配置 -->
-    <add key="Proxy_Host" value="1.1.1.1"/>
-    <add key="Proxy_Port" value="8080"/>
-    <add key="Proxy_Username" value=""/>
-    <add key="Proxy_Password" value=""/>
+    CurlPath ：curl.exe完整路径，未配置时取程序/bin/curl/bin/curl.exe
+    ChatGPT_Api_Url：api服务路径
+    ChatGPT_Api_Key：登录openai账号后创建Authorization_Key
+    Proxy_Host：代理服务器IP,大陆地区无法直接访问api
+    Proxy_Port：代理服务器端口号
+    Proxy_Username：代理登录账户
+    Proxy_Password：代理登录密码
     
 2. 在程序中发起提问
+   var MyChatGPT = new ChatGPT.API.Service();
+   var answer = MyChatGPT.Question2(question);
